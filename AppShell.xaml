@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="SeathernyShopMAUI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:SeathernyShopMAUI">
+
+    <ShellContent Icon="https://img.icons8.com/ios-glyphs/512/home-page.png"
+    Title="LogIn"
+        ContentTemplate="{DataTemplate local:LogInPage}"
+        Route="LogIn" />
+    <ShellContent Icon="https://img.icons8.com/ios-filled/512/cocktail.png"
+        Title="Cocktails"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+    <ShellContent Icon="https://img.icons8.com/ios-glyphs/512/conference-call.png"
+    Title="About"
+    ContentTemplate="{DataTemplate local:AboutPage}"
+    Route="About"/>
+    
+
+</Shell>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SeathernyShopMAUI.LogInPage"
+             xmlns:handlers="clr-namespace:SeathernyShopMAUI.Handlers"
+
+        
+             Title="LogIn">
+    
+    <VerticalStackLayout
+        Spacing="25"
+        Padding="30,0"
+        VerticalOptions="Center">
+        
+        <Image Source="cocktail.png"
+               HeightRequest="150"
+               WidthRequest="150"/>
+        <VerticalStackLayout Spacing="5">
+            <Label Text="Welcome to cocktails world!"
+                   FontSize="28"
+                   TextColor="Gray"
+                   HorizontalTextAlignment="Center"/>
+            <Label Text="Login to your account"
+                    FontSize="16"
+                   TextColor="Gray"
+                   HorizontalTextAlignment="Center"/>
+        </VerticalStackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Frame HasShadow="True"
+                   ZIndex="1"
+                   HeightRequest="56"
+                   WidthRequest="56"
+                   CornerRadius="28"
+                   BorderColor="White">
+                <Image Source="user.png"
+                       HeightRequest="20"
+                       WidthRequest="20">
+                    
+                </Image>
+                
+            </Frame>
+            <Frame HorizontalOptions="FillAndExpand"
+                   BorderColor="White"
+                   HasShadow="True"
+                   Padding="1"
+                   HeightRequest="45"
+                   Margin="-20,0,0,0">
+                <handlers:BorderlessEntry 
+                       Keyboard="Email"
+                       VerticalOptions="Center"
+                       Margin="20,0,0,0"/>
+
+            </Frame>
+
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Frame HasShadow="True"
+                   ZIndex="1"
+                   HeightRequest="56"
+                   WidthRequest="56"
+                   CornerRadius="28"
+                   BorderColor="White">
+                <Image Source="password.png"
+                       HeightRequest="20"
+                       WidthRequest="20">
+
+                </Image>
+
+            </Frame>
+            <Frame HorizontalOptions="FillAndExpand"
+                   BorderColor="White"
+                   HasShadow="True"
+                   Padding="1"
+                   HeightRequest="45"
+                   Margin="-20,0,0,0">
+                <handlers:BorderlessEntry 
+                    
+                       IsPassword="True"
+                       Keyboard="Email"
+                       VerticalOptions="Center"
+                       Margin="20,0,0,0"/>
+
+            </Frame>
+
+        </StackLayout>
+        <Button Text="Sign In"
+                BackgroundColor="#78b075"
+                HorizontalOptions="Center"
+                WidthRequest="100"
+                CornerRadius="20"/>
+        <StackLayout Orientation="Horizontal" Spacing="5"
+                     HorizontalOptions="Center">
+            <Label Text="Don't have account?" TextColor="Gray"/>
+            <Label Text="Sign Up here" TextColor="#78b075"/>
+        </StackLayout>
+                            
+
+
+    </VerticalStackLayout>
+</ContentPage>

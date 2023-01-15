@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:viewmodels="clr-namespace:SeathernyShopMAUI.ViewModels"
+             xmlns:models="clr-namespace:SeathernyShopMAUI.Models"
+             x:DataType="viewmodels:MyCocktailViewModel"
+             x:Class="SeathernyShopMAUI.MainPage">
+
+    <Grid Padding="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="AUTO"/>
+            <RowDefinition Height="AUTO"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="AUTO"/>
+
+        </Grid.RowDefinitions>
+        <!-- Your Cocktails -->
+        <HorizontalStackLayout>
+            <Label FontFamily="RobotoBold"  FontAttributes="Bold" FontSize="24" Text="Your "/>
+            <Label FontFamily="RobotoBold"  FontAttributes="Bold" FontSize="24"  Text="Cocktails"
+                   TextColor="{StaticResource SeathernyPurple}"/>
+            
+        </HorizontalStackLayout>
+        <!-- Cocktails you have created-->
+        <Label Text="Cocktails you have created"
+FontFamily="serif"
+               Grid.Row="1"
+               TextColor="#555"/>
+        <!-- Scrollable list of Cocktails-->
+        <RefreshView Grid.Row="1"
+                     Margin="0,16"
+                     IsRefreshing="{Binding IsRefreshing}"
+                     Command="{Binding LoadCocktailsCommand}">
+            <CollectionView ItemsSource="{Binding Cocktails }">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical"
+                                   ItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Cocktail">
+                    <Border MinimumHeightRequest="315"
+                            Stroke="#efefef">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding Image}"
+                                   Aspect="AspectFill"/>
+                            <Grid Grid.Column="1" Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="AUTO"/>
+                                    <RowDefinition Height="AUTO"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="AUTO"/>
+                                    <RowDefinition Height="AUTO"/>
+                                </Grid.RowDefinitions>
+                                <!-- Name -->
+                                <Label Text="{Binding Name}"
+                                       FontSize="24"
+                                       FontFamily="RobotoBold"
+                                        FontAttributes="Bold"/>
+                                <!-- Start and End Date Time-->
+                                <Label Text="Monday, 9:00 - 10:00 AM"
+                                       FontSize="12"
+                                       Grid.Row="1"
+                                       />
+                                <!-- Description -->
+                                <Label Text="{Binding Description}"
+                                       Grid.Row="2"
+                                       Padding="0,8,0,0"
+                                       TextColor="#555"
+                                       FontSize="20"/>
+                                
+                                <!-- Savory -->
+                                <FlexLayout
+                                    BindableLayout.ItemsSource="{Binding Savory}"
+                                    Grid.Row="3"
+                                    Wrap="Wrap"
+                                    AlignItems="Start">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <Frame Padding="3"
+                                                   Margin="1"
+                                                   BorderColor="Transparent"
+                                                   BackgroundColor="#DCD3FF">
+                                                <Label Text="{Binding .}"/>
+                                            </Frame>
+                                              
+                                            
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                    
+                                </FlexLayout>
+                                <!-- Sweet -->
+                                <FlexLayout
+                                    BindableLayout.ItemsSource="{Binding Sweet}"
+                                    Grid.Row="4"
+                                    Wrap="Wrap"
+                                    AlignItems="Start">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <Frame Padding="2"
+                                                   Margin="1"
+                                                   BorderColor="Transparent"
+                                                   BackgroundColor="#C4FAF8">
+                                                <Label Text="{Binding .}"/>
+                                            </Frame>
+
+
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+
+                                </FlexLayout>
+
+                            </Grid>
+                        </Grid>
+                        
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        </RefreshView>
+        
+
+        <!-- Create New Cocktails Button-->
+            <Button Text="Create New Cocktail"
+               BackgroundColor="#B28DFF"
+               Padding="5"
+               CornerRadius="2"
+               Grid.Row="4"
+                     FontAttributes="Bold"/>
+
+
+    </Grid>
+   
+
+</ContentPage>
